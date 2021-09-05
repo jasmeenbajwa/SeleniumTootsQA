@@ -28,13 +28,14 @@ public class First_Program {
 		WebDriver driver= new ChromeDriver();
 		JavascriptExecutor js=(JavascriptExecutor) driver;  /*to execute jsexecuter*/
 		driver.get("https://www.demoqa.com/");
-		//driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		WebElement card= driver.findElement(By.xpath("//div[@class='home-body']"));
 		card.click();
 		WebElement form= driver.findElement(By.xpath("//div[@class='left-pannel']/div/div[2]"));
 		form.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[@class='left-pannel']/div/div[2]/div")).click();
+		driver.findElement(By.cssSelector("a[id='close-fixedban']")).click();
 		driver.findElement(By.id("firstName")).sendKeys("Jasmeen");
 		driver.findElement(By.id("lastName")).sendKeys("Kaur");
 		driver.findElement(By.id("userEmail")).sendKeys("jasmeenkaur1234@gmail.com");
@@ -50,8 +51,7 @@ public class First_Program {
 		driver.findElement(By.xpath("//div[@aria-label='Choose Monday, February 17th, 1997']")).click();
 		//Thread.sleep(2000);			
 		driver.findElement(By.id("subjectsInput")).sendKeys("Hello there i am filling form");
-		
-		
+		Thread.sleep(2000);
 		
 		//driver.findElement(By.xpath("//div[@id='hobbiesWrapper']/div[2]/div[3]/input")).click();
 		//driver.findElement(By.cssSelector("label[for='hobbies-checkbox-1']")).click();
@@ -64,10 +64,15 @@ public class First_Program {
 		Thread.sleep(2000);
 		WebElement state= driver.findElement(By.id("stateCity-wrapper"));
 		js.executeScript("arguments[0].scrollIntoView();",state);   /*to scroll until find state filed else throws error */
-		driver.findElement(By.xpath("//div[@id='stateCity-wrapper']/div[2]/div/div/div[1]/div[2]/div/input")).sendKeys("Haryana");
-		//driver.findElement(By.xpath("//div[@id='stateCity-wrapper']/div[3]")).click();
-		driver.findElement(By.xpath("//div[@id='stateCity-wrapper']/div[3]/div/div/div[1]/div[2]/div/input")).sendKeys("Panipat");
-		
+		driver.findElement(By.xpath("//div[@id='stateCity-wrapper']/div[2]/div/div/div[1]/div[2]/div/input")).sendKeys("NCR");
+		//driver.findElement(By.xpath("////div[@id='stateCity-wrapper']/div[3]/div")).click();
+		//driver.findElement(By.xpath("//div[@id='stateCity-wrapper']/div[3]/div/div/div[1]/div[2]/div/input")).sendKeys("Panipat");
+		driver.findElement(By.id("submit")).click();
+		WebElement close_button=driver.findElement(By.id("closeLargeModal"));
+		js.executeScript("arguments[0].scrollIntoView();",close_button);
+		Thread.sleep(2000);
+		driver.findElement(By.id("closeLargeModal")).click();
+		driver.close();
 	
 		
 	
