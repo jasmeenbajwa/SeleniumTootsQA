@@ -2,6 +2,7 @@ package Selenium_Practice;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,9 +14,8 @@ public class First_Program {
 		// TODO Auto-generated method stub
 
 		
-		practice_form();
-		//check_box();   /*this portion working done*/
-	
+		//practice_form();
+		check_box();   /*this portion working done*/
 		
 		
 	}
@@ -48,32 +48,29 @@ public class First_Program {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//option[@value='1997']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[@aria-label='Choose Monday, February 17th, 1997']")).click();
-		//Thread.sleep(2000);			
+		driver.findElement(By.xpath("//div[@aria-label='Choose Monday, February 17th, 1997']")).click();			
 		driver.findElement(By.id("subjectsInput")).sendKeys("Hello there i am filling form");
 		Thread.sleep(2000);
-		
-		//driver.findElement(By.xpath("//div[@id='hobbiesWrapper']/div[2]/div[3]/input")).click();
-		//driver.findElement(By.cssSelector("label[for='hobbies-checkbox-1']")).click();
-		//System.out.println(driver.findElement(By.cssSelector("label[for='hobbies-checkbox-1']")).isSelected());
-		//driver.findElement(By.xpath("//input[@value='hobbiesWrapper']/div/div[3]/label")).click();
+		driver.findElement(By.cssSelector("label[for='hobbies-checkbox-1']")).click();
+		driver.findElement(By.cssSelector("label[for='hobbies-checkbox-2']")).click();
+		driver.findElement(By.cssSelector("label[for='hobbies-checkbox-3']")).click();
 		driver.findElement(By.id("uploadPicture")).sendKeys("C:\\Users\\jasme\\Pictures\\image7.jpg");
 		driver.findElement(By.id("currentAddress")).sendKeys("5 Argelia Crescent, Brampton, ON, L6X5N5");
-		//WebElement staticdropdown= driver.findElement(By.id(""));
-		//Select dropdown= new Select(form);
 		Thread.sleep(2000);
 		WebElement state= driver.findElement(By.id("stateCity-wrapper"));
 		js.executeScript("arguments[0].scrollIntoView();",state);   /*to scroll until find state filed else throws error */
-		driver.findElement(By.xpath("//div[@id='stateCity-wrapper']/div[2]/div/div/div[1]/div[2]/div/input")).sendKeys("NCR");
-		//driver.findElement(By.xpath("////div[@id='stateCity-wrapper']/div[3]/div")).click();
-		//driver.findElement(By.xpath("//div[@id='stateCity-wrapper']/div[3]/div/div/div[1]/div[2]/div/input")).sendKeys("Panipat");
+		driver.findElement(By.xpath("//div[@id='stateCity-wrapper']/div[2]/div/div/div[1]/div[2]/div/input")).sendKeys("NCR",Keys.TAB);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@id='stateCity-wrapper']/div[3]/div/div/div[1]/div[2]/div/input")).sendKeys("Delhi",Keys.TAB);
+		Thread.sleep(2000);
 		driver.findElement(By.id("submit")).click();
 		WebElement close_button=driver.findElement(By.id("closeLargeModal"));
 		js.executeScript("arguments[0].scrollIntoView();",close_button);
 		Thread.sleep(2000);
 		driver.findElement(By.id("closeLargeModal")).click();
 		driver.close();
-	
+		driver.quit();
+		
 		
 	
 }
@@ -95,7 +92,8 @@ public class First_Program {
 		driver.findElement(By.xpath("//div[@id='tree-node']/ol/li/ol/li[2]/ol/li[1]/span/button")).click();
 		driver.findElement(By.xpath("//div[@id='tree-node']/ol/li/ol/li[2]/ol/li[1]/ol/li[3]/span/label")).click();
 		System.out.println(driver.findElement(By.xpath("//div[@id='result']/span[2]")).getText());
-			
+		driver.close();
+		driver.quit();
 		
 		
 		
