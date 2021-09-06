@@ -19,10 +19,10 @@ public class First_Program {
 		// TODO Auto-generated method stub
 
 		
-		//practice_form();
+		practice_form();
 		//check_box();   /*this portion working done*/
 		//windows();
-		droppable();
+		//droppable();
 	}
 
 	
@@ -48,10 +48,10 @@ public class First_Program {
 		driver.findElement(By.id("userNumber")).sendKeys("123456789123568");
 		driver.findElement(By.id("dateOfBirthInput")).click();
 		driver.findElement(By.cssSelector("select[class='react-datepicker__month-select']")).click();
-		driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']/option[2]")).click();
+		driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']/option[3]")).click();
 		driver.findElement(By.cssSelector("select[class='react-datepicker__year-select']")).click();
-		driver.findElement(By.xpath("//option[@value='1997']")).click();
-		driver.findElement(By.xpath("//div[@aria-label='Choose Monday, February 17th, 1997']")).click();			
+		driver.findElement(By.xpath("//option[@value='2000']")).click();
+		driver.findElement(By.xpath("//div[@aria-label='Choose Monday, March 20th, 2000']")).click();			
 		driver.findElement(By.id("subjectsInput")).sendKeys("Hello there i am filling form");
 		driver.findElement(By.cssSelector("label[for='hobbies-checkbox-1']")).click();
 		driver.findElement(By.cssSelector("label[for='hobbies-checkbox-2']")).click();
