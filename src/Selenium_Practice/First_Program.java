@@ -144,7 +144,7 @@ public class First_Program {
 		WebDriver driver= new ChromeDriver();	
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		JavascriptExecutor js= (JavascriptExecutor) driver;         //JavascriptExecutor js=(JavascriptExecutor) driver;
+		JavascriptExecutor js= (JavascriptExecutor) driver;         
 		driver.get("https://www.demoqa.com/");
 		WebElement card= driver.findElement(By.xpath("//div[@class='home-body']"));
 		card.click();
@@ -156,10 +156,14 @@ public class First_Program {
 		Actions a = new Actions(driver);
 		WebElement Source= driver.findElement(By.id("draggable"));
 		WebElement Target= driver.findElement(By.id("droppable"));
-		a.dragAndDrop(Source,Target).build().perform();
+		a.dragAndDrop(Source,Target).build().perform();   //simple drop done
 		
 		
 	}
+	
+	
+	
+
 	
 	
 	}
